@@ -1,6 +1,6 @@
 package ch02_pjt_03;
-
-public class CalAssembler {
+//IOC 컨테이너 >> 빈을 생성하고 필요한 곳에 주입(DI)하는 특별한 공간
+public class CalAssembler { 
 	MyCalculator calculator;
 	CalAdd calAdd;
 	CalSub calSub;

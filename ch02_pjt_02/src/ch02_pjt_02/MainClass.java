@@ -1,13 +1,13 @@
 package ch02_pjt_02;
 
-public class MainClass {
+public class MainClass { 
 
 	public static void main(String[] args) {
 		MyCalculator calculator = new MyCalculator();
-		calculator.calAdd(10,5);
-		calculator.calSub(10,5);
-		calculator.calMul(10,5);
-		calculator.calDiv(10,5);
+		calculator.calAdd(10,5); 
+		calculator.calSub(10,5); 
+		calculator.calMul(10,5); 
+		calculator.calDiv(10,5); 
 	    
 	}
 
