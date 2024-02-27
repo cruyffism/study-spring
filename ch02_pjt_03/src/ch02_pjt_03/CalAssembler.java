@@ -8,7 +8,7 @@ public class CalAssembler {
 	CalDiv calDiv;
 	
 	public CalAssembler() {
-		calculator = new MyCalculator();
+		calculator = new MyCalculator(); //객체 생성
 		calAdd = new CalAdd();
 		calSub = new CalSub();
 		calMul = new CalMul();

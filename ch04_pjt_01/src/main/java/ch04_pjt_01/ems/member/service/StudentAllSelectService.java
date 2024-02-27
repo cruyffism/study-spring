@@ -13,7 +13,7 @@ public class StudentAllSelectService { // 전체 학생 정보를 조회하는 �
 		this.studentDao = studentDao;
 	}
 	
-	public Map<String, Student> allSelect() {
+	public Map<String, Student> allSelect() { // key값 : 예를 들어 1, 2, 3, 4,... 이면 value값:  1번 학생의 학번,아이디,이름 등등.. 2번 학생의 학번, 아이디, 이름 
 		return studentDao.getStudentDB();
 	}
 	
