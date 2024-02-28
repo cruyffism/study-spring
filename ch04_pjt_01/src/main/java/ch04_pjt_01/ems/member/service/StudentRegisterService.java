@@ -7,7 +7,7 @@ public class StudentRegisterService {
 	
 	private StudentDao studentDao;
 
-	public StudentRegisterService(StudentDao studentDao) {
+	public StudentRegisterService(StudentDao studentDao) { //studentDao를 파라미터로 갖는 생성자
 		this.studentDao = studentDao;
 	}
 	

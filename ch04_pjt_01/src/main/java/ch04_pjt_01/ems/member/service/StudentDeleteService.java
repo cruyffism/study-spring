@@ -8,7 +8,6 @@ public class StudentDeleteService {
 	private StudentDao studentDao; // 8~12라인 >> new 하는 거 처럼 객체 생성
 
 	public StudentDeleteService(StudentDao studentDao) {
-		super();
 		this.studentDao = studentDao;
 	}
 	
