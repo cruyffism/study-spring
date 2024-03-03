@@ -16,7 +16,7 @@ public class MainClass {
 	public static void main(String[] args) {
 		// IOC 컨테이너 생성
 		
-		//GenericXmlApplicationContext ctx = new GenericXmlApplicationContext("classpath:applicationContext.xml");
+		GenericXmlApplicationContext ctx = new GenericXmlApplicationContext("classpath:applicationContext.xml");
 		
 		/*
 		 * GenericXmlApplicationContext ctx = new
@@ -30,8 +30,10 @@ public class MainClass {
 		 * GenericXmlApplicationContext(appCtxs);
 		 */
 		
-		GenericXmlApplicationContext ctx =
-				new GenericXmlApplicationContext("classpath:appCtxImport.xml");
+		/*
+		 * GenericXmlApplicationContext ctx = new
+		 * GenericXmlApplicationContext("classpath:appCtxImport.xml");
+		 */
 		
 
 		// 샘플 데이터

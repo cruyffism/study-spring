@@ -8,12 +8,12 @@ public class User {
 		private String pw;
 		private String phone;
 		private String email;
-		private Date registrationDate;
-		private Date updateDate;
+		private String registrationDate;
+		private String updateDate;
 		
 		//생성자에서 필드를 초기화
-		public User(String id, String pw, String phone, String email, Date registrationDate, Date updateDate) {
-			super();
+		public User(String userNum, String id, String pw, String phone, String email, String registrationDate, String updateDate) {
+			this.userNum = userNum;
 			this.id = id;
 			this.pw = pw;
 			this.phone = phone;
@@ -56,16 +56,16 @@ public class User {
 		public void setEmail(String email) {
 			this.email = email;
 		}
-		public Date getRegistrationDate() {
+		public String getRegistrationDate() {
 			return registrationDate;
 		}
-		public void setRegistrationDate(Date registrationDate) {
+		public void setRegistrationDate(String registrationDate) {
 			this.registrationDate = registrationDate;
 		}
-		public Date getUpdateDate() {
+		public String getUpdateDate() {
 			return updateDate;
 		}
-		public void setUpdateDate(Date updateDate) {
+		public void setUpdateDate(String updateDate) {
 			this.updateDate = updateDate;
 		}
 }

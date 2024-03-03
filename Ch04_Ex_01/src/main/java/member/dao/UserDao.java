@@ -23,7 +23,7 @@ public class UserDao {
 	}
 	
 	
-	public void update(String userNum) { //delete 메소드
+	public void delete(String userNum) { //delete 메소드
 		userDB.remove(userNum);
 	}
 	

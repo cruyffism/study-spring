@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans.xsd">
+    
+    <!-- InitSampleData 빈 -->
+    <bean id="initSampleData"
+      class="ems.utils.InitSampleData"><!-- bean은 생성자를 호출 -->
+		<property name="userNum">                         <!-- property는 setter를 호출 -->
+			<array>
+				<value>hbs001</value>
+				<value>hbs002</value>
+				<value>hbs003</value>
+				<value>hbs004</value>
+				<value>hbs005</value>
+			</array>
+		</property>  
+		<property name="id">                       
+			<array>
+				<value>messi</value>
+				<value>neymar</value>
+				<value>kaka</value>
+				<value>zidane</value>
+				<value>reus</value>
+			</array>
+		</property>
+		<property name="pw">                       
+			<array>
+				<value>p0001</value>
+				<value>p0002</value>
+				<value>p0003</value>
+				<value>p0004</value>
+				<value>p0005</value>
+			</array>
+		</property>     
+    	<property name="phone">                       
+			<array>
+				<value>010-1234-4567</value>
+				<value>010-1245-4567</value>
+				<value>010-5858-6363</value>
+				<value>010-7878-8585</value>
+				<value>010-1245-4484</value>
+			</array>
+		</property> 
+		<property name="email">                       
+			<array>
+				<value>messi@daum.net</value>
+				<value>ney@daum.net</value>
+				<value>kaka@daum.net</value>
+				<value>zidane@daum.net</value>
+				<value>reus@daum.net</value>
+			</array>
+		</property>
+		 <property name="registrationDate">                     
+		  <array>
+				<value>2024-02-02</value>  
+				<value>2024-02-02</value>  
+				<value>2024-02-02</value>  
+				<value>2024-02-02</value>   
+				<value>2024-02-02</value>   
+		  </array>
+		</property>
+		<property name="updateDate">
+		  <array>
+				<value>2024-03-02</value>  
+				<value>2024-03-02</value>  
+				<value>2024-03-02</value>  
+				<value>2024-03-02</value>   
+				<value>2024-03-02</value>   
+		  </array>	
+		</property>    
+    </bean>
+    
+    <!-- UserDao 빈 -->
+	<bean id="userDao"
+		class="member.dao.UserDao" />
+		
+	<!-- UserRegisterService 빈 생성 -->
+	<bean id="userRegisterService"
+		class="member.service.UserRegisterService">
+		<constructor-arg ref="userDao" />
+	</bean>
+	
+	<!-- UserModifyService 빈 생성 -->
+	<bean id="userModifyService"
+		class="member.service.UserModifyService">
+		<constructor-arg ref="userDao" />
+	</bean>
+	
+	<!-- UserDeleteService 빈 생성 -->
+	<bean id="userDeleteService"
+		class="member.service.UserDeleteService">
+		<constructor-arg ref="userDao" />
+	</bean>
+	
+	<!-- UserSelectService 빈 생성 -->
+	<bean id="userSelectService"
+		class="member.service.UserSelectService">
+		<constructor-arg ref="userDao" />
+	</bean>
+	
+	<!-- UserAllSelectService 빈 생성 -->
+	<bean id="userAllSelectService"
+		class="member.service.UserAllSelectService">
+		<constructor-arg ref="userDao" />
+	</bean>
+	
+	<!-- PrintUserInformationService 빈 생성 -->
+	<bean id="printUserInformationService"
+		class="member.service.PrintUserInformationService">
+		<constructor-arg ref="userAllSelectService" />
+	</bean>
+	
+	<!-- DBConnectionInfo 빈 -->
+	
+	<!-- 개발에 이용하는 데이터베이스 빈 생성 -->
+	<bean id="dev_DBConnectionInfoDev"
+		class="member.DBConnectionInfo">
+		<property name="url" value="000.000.000.000" />
+		<property name="userId" value="admin" />
+		<property name="userPw" value="0000" />
+	</bean>
+
+	<!-- 실제 서비스에 이용하는 데이터베이스 빈 생성 -->
+	<bean id="real_DBConnectionInfo"
+		class="member.DBConnectionInfo">
+		<property name="url" value="111.111.111.111" />
+		<property name="userId" value="master" />
+		<property name="userPw" value="1111" />
+	</bean>
+
+	<!-- EMSInformationService 빈 -->
+	<bean id="eMSInformationService"
+		class="member.service.EMSInformationService">
+		<property name="info"
+			value="Education Management System program was developed in 2022." />
+		<property name="copyRight"
+			value="COPYRIGHT(C) 2022 EMS CO., LTD. ALL RIGHT RESERVED. CONTACT MASTER FOR MORE INFORMATION." />
+		<property name="ver" value="The version is 1.0" />
+		<property name="sYear" value="2022" />
+		<property name="sMonth" value="3" />
+		<property name="sDay" value="1" />
+		<property name="eYear" value="2022" />
+		<property name="eMonth" value="4" />
+		<property name="eDay" value="30" />
+		<property name="developers">
+			<list>
+				<value>Cheney.</value>
+				<value>Eloy.</value>
+				<value>Jasper.</value>
+				<value>Dillon.</value>
+				<value>Kian.</value>
+			</list>
+		</property>
+
+		<!-- administrators 필드 초기화 -->
+		<property name="administrators">
+			<map>
+				<entry>
+					<key>
+						<value>Cheney</value>
+					</key>
+					<value>cheney@springPjt.org</value>
+				</entry>
+				<entry>
+					<key>
+						<value>Jasper</value>
+					</key>
+					<value>jasper@springPjt.org</value>
+				</entry>
+			</map>
+		</property>
+
+		<!-- dbInfos 필드 초기화 -->
+		<property name="dbInfos">
+			<map>
+				<entry>
+					<key>
+						<value>dev</value>
+					</key>
+					<ref bean="dev_DBConnectionInfoDev" />	<!-- 개발용 데이터베이스 지정 -->
+				</entry>
+				<entry>
+					<key>
+						<value>real</value>
+					</key>
+					<ref bean="real_DBConnectionInfo" />	<!-- 실제 서비스 데이터베이스 지정 -->
+				</entry>
+			</map>
+		</property>
+	</bean>
+    
+</beans>
