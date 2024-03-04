@@ -1,13 +1,14 @@
 package community;
 
-import java.sql.Date;
-import java.text.SimpleDateFormat;
 
 import org.springframework.context.support.GenericXmlApplicationContext;
 
 import ems.utils.InitSampleData;
 import member.User;
+import member.service.EMSInformationService;
 import member.service.PrintUserInformationService;
+import member.service.UserDeleteService;
+import member.service.UserModifyService;
 import member.service.UserRegisterService;
 import member.service.UserSelectService;
 
@@ -40,10 +41,7 @@ public class MainClass {
 		printUserInformationService.printUserInfo(); // 유저 리스트
 
 		// 유저 등록
-
-		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 		registerService = ctx.getBean("userRegisterService", UserRegisterService.class);
-
 		registerService.register(new User("hbs006", "xavi", "p0006", "010-3356-3369", "xavi@daum.net",
 				"2024-02-07", "2024-03-07"));
 
@@ -52,15 +50,32 @@ public class MainClass {
 		User selecteduser = selectService.select("hbs006");
 
 		System.out.println("USER START ------------------");
-		System.out.println("userNum" + selecteduser.getUserNum() + "\t");
-		System.out.println("|id" + selecteduser.getId() + "\t");
-		System.out.println("|pw" + selecteduser.getPw() + "\t");
-		System.out.println("|phone" + selecteduser.getPhone() + "\t");
-		System.out.println("|email" + selecteduser.getEmail() + "\t");
+		System.out.print("userNum: " + selecteduser.getUserNum() + "\t");
+		System.out.print("|id: " + selecteduser.getId() + "\t");
+		System.out.print("|pw: " + selecteduser.getPw() + "\t");
+		System.out.print("|phone: " + selecteduser.getPhone() + "\t");
+		System.out.print("|email: " + selecteduser.getEmail() + "\t");
+		System.out.print("|registrationDate: " + selecteduser.getRegistrationDate() + "\t");
+		System.out.println("|updateDate: " + selecteduser.getUpdateDate() + "\t");
+		
+		//유저 수정
+		UserModifyService modifyService = ctx.getBean("userModifyService", UserModifyService.class);
+		modifyService.modify(new User("hbs006", "nasri", "p0006", "010-7778-7778", "nasri@daum.net","2024-02-07", "2024-03-07"));
+		
+		printUserInformationService.printUserInfo(); // 유저 리스트 
+		
+		//유저 삭제
+		UserDeleteService deleteService = ctx.getBean("userDeleteService", UserDeleteService.class);
+		deleteService.delete("hbs005");
+		
+		printUserInformationService.printUserInfo(); // 유저 리스트
+		
+		//시스템 정보
+		EMSInformationService emsInformationService = ctx.getBean("eMSInformationService", EMSInformationService.class);
+		emsInformationService.printEMSInformation();
 
-		System.out.println("|registrationDate" + selecteduser.getRegistrationDate() + "\t");
-		System.out.println("|updateDate" + selecteduser.getUpdateDate() + "\t");
-
+		ctx.close(); 
+		
 	}
 
 }

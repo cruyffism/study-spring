@@ -13,7 +13,7 @@ public class UserAllSelectService { // 전체 회원을 조회하는 클래스
 		this.userDao = userDao;
 	}
 	
-	public Map<String, User> allSelect() { // key값 : 예를 들어 1, 2, 3, 4,... 이면 value값:  1번 회원의 학번,아이디,이름 등등.. 2번 회원의 학번, 아이디, 이름 
+	public Map<String, User> allSelect() { // key값 : 예를 들어 1, 2, 3, 4,... 이면 value값:  1번 회원의 번호,아이디,이름 등등.. 2번 회원의 번호, 아이디, 이름 
 		return userDao.getUserDB();
 	}
 

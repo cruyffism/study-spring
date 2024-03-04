@@ -1,8 +1,5 @@
 package ems.utils;
 
-import java.sql.Date;
-
-
 public class InitSampleData {
 	private String[] userNum;
 	private String[] id;

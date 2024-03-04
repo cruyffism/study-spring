@@ -7,12 +7,12 @@ public class UserRegisterService {
 
 	private UserDao userDao;
 	
-	public UserRegisterService(UserDao userDao) { //userDao를 파라미터로 갖는 생성자
+	public UserRegisterService(UserDao userDao) { //userDao를 파라미터로 갖는 생성자(필드를 초기화 해주는 생성자)
 		this.userDao = userDao;
 	}
 	
 	public void register(User user) {
-		if(verify(user.getUserNum())) { //null이면
+		if(verify(user.getUserNum())) { //null이면 회원 등록!
 			userDao.insert(user);
 		} else {
 			System.out.println("The user has already registerd");

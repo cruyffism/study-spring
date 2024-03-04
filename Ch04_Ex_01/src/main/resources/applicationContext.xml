@@ -80,7 +80,7 @@
 	<!-- UserRegisterService 빈 생성 -->
 	<bean id="userRegisterService"
 		class="member.service.UserRegisterService">
-		<constructor-arg ref="userDao" />
+		<constructor-arg ref="userDao" /> <!-- 생성자를 통해 의존성을 주입할때 사용되는 생성자 인자를 정의함,  "userDao" 빈이 "userRegisterService" 빈을 생성할 때 사용 -->
 	</bean>
 	
 	<!-- UserModifyService 빈 생성 -->
