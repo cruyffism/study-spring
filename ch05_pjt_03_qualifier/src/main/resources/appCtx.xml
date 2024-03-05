@@ -27,7 +27,7 @@
 		</property>
 	</bean>
 
-	 <bean id="contactDao" class="ch05_pjt_03.contact.dao.ContactDao" />
+	 <!-- <bean id="contactDao" class="ch05_pjt_03.contact.dao.ContactDao" /> -->
 	<!-- <bean id="contactDao1" class="ch05_pjt_03.contact.dao.ContactDao">
 		<qualifier value="qualifierDao" />	
 	</bean> -->
@@ -38,13 +38,13 @@
 		
 	<bean id="searchService" class="ch05_pjt_03.contact.service.ContactSearchService" />
 	
-	<bean id= "firstBean1" class="ch05_pjt_03.contact.service.FirsBean">
+	<bean id= "firstBean1" class="ch05_pjt_03.contact.service.FirstBean">
 		<qualifier value="qualifierBean" />
 	</bean>
-	<bean id= "firstBean2" class="ch05_pjt_03.contact.service.FirsBean" />	
-	<bean id= "firstBean3" class="ch05_pjt_03.contact.service.FirsBean" />	
+	<bean id= "firstBean2" class="ch05_pjt_03.contact.service.FirstBean" />	
+	<bean id= "firstBean3" class="ch05_pjt_03.contact.service.FirstBean" />	
 	
-	<bean id= "secondBean" class="ch05_pjt_03.contact.service.SecondBean" />
+	<!-- <bean id= "secondBean" class="ch05_pjt_03.contact.service.SecondBean" /> -->
 	
 	<bean id= "thirdBean" class="ch05_pjt_03.contact.service.ThirdBean" />
 	

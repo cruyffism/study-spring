@@ -1,15 +1,18 @@
 package member.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import member.User;
 import member.dao.UserDao;
 
 public class UserSelectService {
-	
+	@Autowired
 	private UserDao userDao;
 
-	public UserSelectService(UserDao userdao) {
-		this.userDao = userdao;
-	}
+	/*
+	 * @Autowired public UserSelectService(UserDao userDao) {
+	 * System.out.println("select: " + userDao); this.userDao = userDao; }
+	 */
 	
 	public User select(String userNum) {
 		if(verify(userNum)) { //null이 아니면

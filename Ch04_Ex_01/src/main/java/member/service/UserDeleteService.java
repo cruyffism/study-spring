@@ -1,5 +1,7 @@
 package member.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import member.User;
 import member.dao.UserDao;
 
@@ -7,7 +9,9 @@ public class UserDeleteService {
 	
 	private UserDao userDao;
 
+	@Autowired
 	public UserDeleteService(UserDao userDao) {
+		System.out.println("delete: " + userDao);
 		this.userDao = userDao;
 	}
 	

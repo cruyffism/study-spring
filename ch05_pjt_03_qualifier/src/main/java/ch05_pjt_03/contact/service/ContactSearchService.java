@@ -7,7 +7,7 @@ import ch05_pjt_03.contact.ContactSet;
 import ch05_pjt_03.contact.dao.ContactDao;
 
 public class ContactSearchService {
-	@Autowired
+	@Autowired(required = false)
 	/* @Qualifier("qualifierDao") */
 	private ContactDao contactDao;
 

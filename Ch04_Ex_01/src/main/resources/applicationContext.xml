@@ -2,8 +2,13 @@
 
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
-    http://www.springframework.org/schema/beans/spring-beans.xsd">
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+    
+    <context:annotation-config/>  	<!-- 의존 자동 객체 주입을 해주는 태그 -->
     
     <!-- InitSampleData 빈 -->
     <bean id="initSampleData"
@@ -80,37 +85,37 @@
 	<!-- UserRegisterService 빈 생성 -->
 	<bean id="userRegisterService"
 		class="member.service.UserRegisterService">
-		<constructor-arg ref="userDao" /> <!-- 생성자를 통해 의존성을 주입할때 사용되는 생성자 인자를 정의함,  "userDao" 빈이 "userRegisterService" 빈을 생성할 때 사용 -->
+		<!-- <constructor-arg ref="userDao" /> --> <!-- 생성자를 통해 의존성을 주입할때 사용되는 생성자 인자를 정의함,  "userDao" 빈이 "userRegisterService" 빈을 생성할 때 사용 -->
 	</bean>
 	
 	<!-- UserModifyService 빈 생성 -->
 	<bean id="userModifyService"
 		class="member.service.UserModifyService">
-		<constructor-arg ref="userDao" />
+		<!-- <constructor-arg ref="userDao" /> -->
 	</bean>
 	
 	<!-- UserDeleteService 빈 생성 -->
 	<bean id="userDeleteService"
 		class="member.service.UserDeleteService">
-		<constructor-arg ref="userDao" />
+		<!-- <constructor-arg ref="userDao" /> -->
 	</bean>
 	
 	<!-- UserSelectService 빈 생성 -->
 	<bean id="userSelectService"
 		class="member.service.UserSelectService">
-		<constructor-arg ref="userDao" />
+		<!-- <constructor-arg ref="userDao" /> -->
 	</bean>
 	
 	<!-- UserAllSelectService 빈 생성 -->
 	<bean id="userAllSelectService"
 		class="member.service.UserAllSelectService">
-		<constructor-arg ref="userDao" />
+		<!-- <constructor-arg ref="userDao" /> -->
 	</bean>
 	
 	<!-- PrintUserInformationService 빈 생성 -->
 	<bean id="printUserInformationService"
 		class="member.service.PrintUserInformationService">
-		<constructor-arg ref="userAllSelectService" />
+		<!-- <constructor-arg ref="userAllSelectService" /> -->
 	</bean>
 	
 	<!-- DBConnectionInfo 빈 -->

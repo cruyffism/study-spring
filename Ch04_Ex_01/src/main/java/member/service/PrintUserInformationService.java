@@ -4,15 +4,18 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import member.User;
 
 public class PrintUserInformationService { //전체 회원 정보 출력
-	
+	@Autowired  //필드에 @Autowired 할 시 생성자 만들필요없음!
 	UserAllSelectService allSelectService;
 	
-	public PrintUserInformationService(UserAllSelectService allSelectService) {
-		this.allSelectService = allSelectService;
-	}
+	/*
+	 * public PrintUserInformationService(UserAllSelectService allSelectService) {
+	 * this.allSelectService = allSelectService; }
+	 */
 	
 	public void printUserInfo() {
 		Map<String, User> allUser = allSelectService.allSelect(); //allSelectService 객체의 allSelect() 메서드를 호출하여 모든 회원 정보를 가져옵니다. 이 정보는 Map<String, User> 형태로 반환됩니다.

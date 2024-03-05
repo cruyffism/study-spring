@@ -1,13 +1,18 @@
 package member.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import member.User;
 import member.dao.UserDao;
 
 public class UserModifyService {
 	
+	
 	private UserDao userDao;
 	
+	@Autowired
 	public UserModifyService(UserDao userDao) {
+		System.out.println("modify: " + userDao);
 		this.userDao = userDao;
 	}
 	

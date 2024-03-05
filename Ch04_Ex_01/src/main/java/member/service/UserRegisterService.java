@@ -1,13 +1,18 @@
 package member.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import member.User;
 import member.dao.UserDao;
 // user 정보를 HashMap에 저장하는 기능
 public class UserRegisterService {
 
+	
 	private UserDao userDao;
 	
+	@Autowired
 	public UserRegisterService(UserDao userDao) { //userDao를 파라미터로 갖는 생성자(필드를 초기화 해주는 생성자)
+		System.out.println("register: " + userDao);
 		this.userDao = userDao;
 	}
 	
