@@ -2,18 +2,19 @@ package ch06_pjt_01.ems;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import ch06_pjt_01.ems.configuration.MemberConfig;
+import ch06_pjt_01.ems.configuration.MemberConfig1;
+import ch06_pjt_01.ems.configuration.MemberConfig2;
+import ch06_pjt_01.ems.configuration.MemberConfig3;
 import ch06_pjt_01.ems.member.Student;
 import ch06_pjt_01.ems.member.service.EMSInformationService;
 import ch06_pjt_01.ems.member.service.PrintStudentInformationService;
 import ch06_pjt_01.ems.member.service.StudentDeleteService;
 import ch06_pjt_01.ems.member.service.StudentModifyService;
 import ch06_pjt_01.ems.member.service.StudentRegisterService;
-
 import ch06_pjt_01.ems.member.service.StudentSelectService;
 import ch06_pjt_01.ems.utils.InitSampleData;
 
-public class MainClassUseConfig {
+public class MainClassUseConfigs {
 
 	public static void main(String[] args) {
 		/* IOC 컨테이너 생성
@@ -22,7 +23,7 @@ public class MainClassUseConfig {
 		 */
 		
 		AnnotationConfigApplicationContext ctx = 
-				new AnnotationConfigApplicationContext(MemberConfig.class);
+				new AnnotationConfigApplicationContext(MemberConfig1.class, MemberConfig2.class, MemberConfig3.class);
 		
 		/*
 		 * GenericXmlApplicationContext ctx = new
