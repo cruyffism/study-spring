@@ -1,10 +1,12 @@
 package patient.Service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import patient.Patient;
 import patient.Dao.PatientDao;
 
 public class PatientDeleteService {
-
+	@Autowired
 	private PatientDao patientDao;
 
 	public PatientDeleteService(PatientDao patientDao) {

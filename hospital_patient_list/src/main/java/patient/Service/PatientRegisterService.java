@@ -1,10 +1,13 @@
 package patient.Service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import patient.Patient;
 import patient.Dao.PatientDao;
 
 //환자 정보를 HashMap에 저장하는 기능
 public class PatientRegisterService {
+	@Autowired
 	private PatientDao patientDao;
 
 	public PatientRegisterService(PatientDao patientDao) {
