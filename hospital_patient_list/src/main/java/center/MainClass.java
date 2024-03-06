@@ -11,11 +11,21 @@ import patient.Service.PatientSelectService;
 import patient.Service.PrintPatientInformationService;
 import patient.configuration.PatientConfig;
 
+
+/*첫 조회 후 나머지는 전부 HashMap에 저장 된 데이터 활용
+1. 메인 클래스에서 환자 등록 실행 시 (register service)
+2. 레지스터 서비스 호출
+3. 레지스터 서비스에 있는 레지스터 메소드가 다오에 있는 인설트 메소드 호출해서 실행
+4. 이것들이 다시 역순으로 서비스 >> 메인 클래스로 가서 메인 클래스에서 환자 등록 실행!
+Mainclass >> service >> dao (config는 기본 값 세팅)
+(register서비스를 예시로 든 것일뿐 어떤 서비스든 이러한 과정을 거침)*/
+
+
 public class MainClass {
 	
 	public static void main(String[] args) {
 		
-		AnnotationConfigApplicationContext ctx =
+		AnnotationConfigApplicationContext ctx =  //config 세팅을 통한 Bean 등록
 				new AnnotationConfigApplicationContext(PatientConfig.class);
 		
 		//샘플 데이터
@@ -31,7 +41,7 @@ public class MainClass {
 		String[] inputDate = initSampleData.getInputDate();
 		char[] gender = initSampleData.getGender();
 
-		//db에 샘플 등록
+		//db에 샘플 등록 >> 이 for문에서 해쉬맵에 데이터 샘플을 저장 
 		PatientRegisterService registerService = ctx.getBean("patientRegisterService", PatientRegisterService.class);
 		for(int i=0; i < reservationNum.length; i++) {
 			registerService.register(
